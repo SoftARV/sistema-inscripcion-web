@@ -1,9 +1,9 @@
 <?php 
 
-	define(databaseServer, "localhost");
-	define(databaseUser, "root");
-	define(databasePassword, "");
-	define(databaseName, "sistema_inscripcion_bd");
+	define("databaseServer", "localhost");
+	define("databaseUser", "root");
+	define("databasePassword", "");
+	define("databaseName", "sistema_inscripcion_bd");
 
 	$conn;
 
@@ -12,7 +12,7 @@
 
 		if ($GLOBALS['conn']->connect_error) {
 			die("Conection failed: " . $conn->connect_error);
-		}
+		} else echo "Connected";
 	}
 
 	function disconnectDatabase() {
