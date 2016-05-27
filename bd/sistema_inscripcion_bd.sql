@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 24, 2016 at 09:28 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.20
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 27-05-2016 a las 12:27:31
+-- Versión del servidor: 10.1.8-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,142 +17,159 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `inscripciones_bd`
+-- Base de datos: `sistema_inscripcion_bd`
 --
-CREATE DATABASE IF NOT EXISTS `sistema_inscripcion_bd` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `sistema_inscripcion_bd`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alumno`
+-- Estructura de tabla para la tabla `alumno`
 --
 
 CREATE TABLE `alumno` (
-  `idAlumno` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idAlumno` int(11) NOT NULL,
+  `persona_idPersona` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `curso`
+-- Estructura de tabla para la tabla `curso`
 --
 
 CREATE TABLE `curso` (
   `idCurso` int(11) NOT NULL,
   `nombreCurso` varchar(45) NOT NULL,
   `profesor_idProfesor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dia`
+-- Estructura de tabla para la tabla `dia`
 --
 
 CREATE TABLE `dia` (
   `idDia` int(11) NOT NULL,
-  `dia` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nombreDia` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dia`
+-- Volcado de datos para la tabla `dia`
 --
 
-INSERT INTO `dia` (`idDia`, `dia`) VALUES
+INSERT INTO `dia` (`idDia`, `nombreDia`) VALUES
 (1, 'Lunes'),
 (2, 'Martes'),
 (3, 'Miercoles'),
 (4, 'Jueves'),
 (5, 'Viernes'),
-(6, 'Sabado');
+(6, 'Sabado'),
+(7, 'Domingo');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dia_has_hora`
+-- Estructura de tabla para la tabla `dia_has_hora`
 --
 
 CREATE TABLE `dia_has_hora` (
   `dia_idDia` int(11) NOT NULL,
   `hora_idHora` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hora`
+-- Estructura de tabla para la tabla `dia_has_salon`
+--
+
+CREATE TABLE `dia_has_salon` (
+  `dia_idDia` int(11) NOT NULL,
+  `salon_idSalon` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hora`
 --
 
 CREATE TABLE `hora` (
   `idHora` int(11) NOT NULL,
-  `horaInicial` time NOT NULL,
+  `horaInicio` time NOT NULL,
   `horaFinal` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inscripcion`
+-- Estructura de tabla para la tabla `inscripcion`
 --
 
 CREATE TABLE `inscripcion` (
   `idInscripcion` int(11) NOT NULL,
   `costo` double NOT NULL,
   `alumno_idAlumno` int(11) NOT NULL,
-  `curso_idCurso` int(11) NOT NULL,
-  `usuario_idUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `usuario_idUsuario` int(11) NOT NULL,
+  `curso_idCurso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perfil`
+-- Estructura de tabla para la tabla `perfil`
 --
 
 CREATE TABLE `perfil` (
   `idPerfil` int(11) NOT NULL,
   `tipoPerfil` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `perfil`
+-- Volcado de datos para la tabla `perfil`
 --
 
 INSERT INTO `perfil` (`idPerfil`, `tipoPerfil`) VALUES
-(1, 'SuperUsuario'),
+(1, 'Super Usuario'),
 (2, 'Usuario');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `persona`
+-- Estructura de tabla para la tabla `persona`
 --
 
 CREATE TABLE `persona` (
   `idPersona` int(11) NOT NULL,
-  `cedula` varchar(45) NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  `apellido` varchar(45) NOT NULL,
-  `telefono` varchar(45) DEFAULT NULL,
-  `profesor_idProfesor` int(11) NOT NULL,
-  `alumno_idAlumno` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cedula` varchar(11) NOT NULL,
+  `nombre` varchar(25) NOT NULL,
+  `apellido` varchar(25) NOT NULL,
+  `telefono` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `persona`
+--
+
+INSERT INTO `persona` (`idPersona`, `cedula`, `nombre`, `apellido`, `telefono`) VALUES
+(1, '20986889', 'Miguel', 'Rincon', '04246122554');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profesor`
+-- Estructura de tabla para la tabla `profesor`
 --
 
 CREATE TABLE `profesor` (
-  `idProfesor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idProfesor` int(11) NOT NULL,
+  `persona_idPersona` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `salon`
+-- Estructura de tabla para la tabla `salon`
 --
 
 CREATE TABLE `salon` (
@@ -160,36 +177,25 @@ CREATE TABLE `salon` (
   `bloque` varchar(45) NOT NULL,
   `numero` varchar(45) NOT NULL,
   `capacidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seccion`
+-- Estructura de tabla para la tabla `seccion`
 --
 
 CREATE TABLE `seccion` (
   `idSeccion` int(11) NOT NULL,
-  `seccion` varchar(45) NOT NULL,
+  `codigoSeccion` varchar(45) NOT NULL,
   `curso_idCurso` int(11) NOT NULL,
   `salon_idSalon` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seccion_has_dia`
---
-
-CREATE TABLE `seccion_has_dia` (
-  `seccion_idSeccion` int(11) NOT NULL,
-  `dia_idDia` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -198,33 +204,41 @@ CREATE TABLE `usuario` (
   `password` varchar(45) NOT NULL,
   `persona_idPersona` int(11) NOT NULL,
   `perfil_idPerfil` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `correo`, `password`, `persona_idPersona`, `perfil_idPerfil`) VALUES
+(1, 'miguelaezak@gmail.com', '986889', 1, 1);
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `alumno`
+-- Indices de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  ADD PRIMARY KEY (`idAlumno`);
+  ADD PRIMARY KEY (`idAlumno`),
+  ADD KEY `fk_alumno_persona1_idx` (`persona_idPersona`);
 
 --
--- Indexes for table `curso`
+-- Indices de la tabla `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`idCurso`),
   ADD KEY `fk_curso_profesor1_idx` (`profesor_idProfesor`);
 
 --
--- Indexes for table `dia`
+-- Indices de la tabla `dia`
 --
 ALTER TABLE `dia`
   ADD PRIMARY KEY (`idDia`);
 
 --
--- Indexes for table `dia_has_hora`
+-- Indices de la tabla `dia_has_hora`
 --
 ALTER TABLE `dia_has_hora`
   ADD PRIMARY KEY (`dia_idDia`,`hora_idHora`),
@@ -232,48 +246,55 @@ ALTER TABLE `dia_has_hora`
   ADD KEY `fk_dia_has_hora_dia1_idx` (`dia_idDia`);
 
 --
--- Indexes for table `hora`
+-- Indices de la tabla `dia_has_salon`
+--
+ALTER TABLE `dia_has_salon`
+  ADD PRIMARY KEY (`dia_idDia`,`salon_idSalon`),
+  ADD KEY `fk_dia_has_salon_salon1_idx` (`salon_idSalon`),
+  ADD KEY `fk_dia_has_salon_dia1_idx` (`dia_idDia`);
+
+--
+-- Indices de la tabla `hora`
 --
 ALTER TABLE `hora`
   ADD PRIMARY KEY (`idHora`);
 
 --
--- Indexes for table `inscripcion`
+-- Indices de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
   ADD PRIMARY KEY (`idInscripcion`),
   ADD KEY `fk_inscripcion_alumno1_idx` (`alumno_idAlumno`),
-  ADD KEY `fk_inscripcion_curso1_idx` (`curso_idCurso`),
-  ADD KEY `fk_inscripcion_usuario1_idx` (`usuario_idUsuario`);
+  ADD KEY `fk_inscripcion_usuario1_idx` (`usuario_idUsuario`),
+  ADD KEY `fk_inscripcion_curso1_idx` (`curso_idCurso`);
 
 --
--- Indexes for table `perfil`
+-- Indices de la tabla `perfil`
 --
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`idPerfil`);
 
 --
--- Indexes for table `persona`
+-- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD PRIMARY KEY (`idPersona`),
-  ADD KEY `fk_persona_profesor_idx` (`profesor_idProfesor`),
-  ADD KEY `fk_persona_alumno1_idx` (`alumno_idAlumno`);
+  ADD PRIMARY KEY (`idPersona`);
 
 --
--- Indexes for table `profesor`
+-- Indices de la tabla `profesor`
 --
 ALTER TABLE `profesor`
-  ADD PRIMARY KEY (`idProfesor`);
+  ADD PRIMARY KEY (`idProfesor`),
+  ADD KEY `fk_profesor_persona1_idx` (`persona_idPersona`);
 
 --
--- Indexes for table `salon`
+-- Indices de la tabla `salon`
 --
 ALTER TABLE `salon`
   ADD PRIMARY KEY (`idSalon`);
 
 --
--- Indexes for table `seccion`
+-- Indices de la tabla `seccion`
 --
 ALTER TABLE `seccion`
   ADD PRIMARY KEY (`idSeccion`),
@@ -281,99 +302,104 @@ ALTER TABLE `seccion`
   ADD KEY `fk_seccion_salon1_idx` (`salon_idSalon`);
 
 --
--- Indexes for table `seccion_has_dia`
---
-ALTER TABLE `seccion_has_dia`
-  ADD PRIMARY KEY (`seccion_idSeccion`,`dia_idDia`),
-  ADD KEY `fk_seccion_has_dia_dia1_idx` (`dia_idDia`),
-  ADD KEY `fk_seccion_has_dia_seccion1_idx` (`seccion_idSeccion`);
-
---
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`),
-  ADD KEY `fk_usuario_persona1_idx` (`persona_idPersona`),
+  ADD KEY `fk_usuario_persona_idx` (`persona_idPersona`),
   ADD KEY `fk_usuario_perfil1_idx` (`perfil_idPerfil`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `alumno`
+-- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
   MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `curso`
+-- AUTO_INCREMENT de la tabla `curso`
 --
 ALTER TABLE `curso`
   MODIFY `idCurso` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `dia`
+-- AUTO_INCREMENT de la tabla `dia`
 --
 ALTER TABLE `dia`
-  MODIFY `idDia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idDia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT for table `hora`
+-- AUTO_INCREMENT de la tabla `hora`
 --
 ALTER TABLE `hora`
   MODIFY `idHora` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `inscripcion`
+-- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
   MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `perfil`
+-- AUTO_INCREMENT de la tabla `perfil`
 --
 ALTER TABLE `perfil`
   MODIFY `idPerfil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `persona`
+-- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idPersona` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `profesor`
+-- AUTO_INCREMENT de la tabla `profesor`
 --
 ALTER TABLE `profesor`
   MODIFY `idProfesor` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `salon`
+-- AUTO_INCREMENT de la tabla `salon`
 --
 ALTER TABLE `salon`
   MODIFY `idSalon` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `seccion`
+-- AUTO_INCREMENT de la tabla `seccion`
 --
 ALTER TABLE `seccion`
   MODIFY `idSeccion` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `curso`
+-- Filtros para la tabla `alumno`
+--
+ALTER TABLE `alumno`
+  ADD CONSTRAINT `fk_alumno_persona1` FOREIGN KEY (`persona_idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `curso`
 --
 ALTER TABLE `curso`
   ADD CONSTRAINT `fk_curso_profesor1` FOREIGN KEY (`profesor_idProfesor`) REFERENCES `profesor` (`idProfesor`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `dia_has_hora`
+-- Filtros para la tabla `dia_has_hora`
 --
 ALTER TABLE `dia_has_hora`
   ADD CONSTRAINT `fk_dia_has_hora_dia1` FOREIGN KEY (`dia_idDia`) REFERENCES `dia` (`idDia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_dia_has_hora_hora1` FOREIGN KEY (`hora_idHora`) REFERENCES `hora` (`idHora`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `inscripcion`
+-- Filtros para la tabla `dia_has_salon`
+--
+ALTER TABLE `dia_has_salon`
+  ADD CONSTRAINT `fk_dia_has_salon_dia1` FOREIGN KEY (`dia_idDia`) REFERENCES `dia` (`idDia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_dia_has_salon_salon1` FOREIGN KEY (`salon_idSalon`) REFERENCES `salon` (`idSalon`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
   ADD CONSTRAINT `fk_inscripcion_alumno1` FOREIGN KEY (`alumno_idAlumno`) REFERENCES `alumno` (`idAlumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -381,32 +407,24 @@ ALTER TABLE `inscripcion`
   ADD CONSTRAINT `fk_inscripcion_usuario1` FOREIGN KEY (`usuario_idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `persona`
+-- Filtros para la tabla `profesor`
 --
-ALTER TABLE `persona`
-  ADD CONSTRAINT `fk_persona_alumno1` FOREIGN KEY (`alumno_idAlumno`) REFERENCES `alumno` (`idAlumno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_persona_profesor` FOREIGN KEY (`profesor_idProfesor`) REFERENCES `profesor` (`idProfesor`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `profesor`
+  ADD CONSTRAINT `fk_profesor_persona1` FOREIGN KEY (`persona_idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `seccion`
+-- Filtros para la tabla `seccion`
 --
 ALTER TABLE `seccion`
   ADD CONSTRAINT `fk_seccion_curso1` FOREIGN KEY (`curso_idCurso`) REFERENCES `curso` (`idCurso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_seccion_salon1` FOREIGN KEY (`salon_idSalon`) REFERENCES `salon` (`idSalon`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `seccion_has_dia`
---
-ALTER TABLE `seccion_has_dia`
-  ADD CONSTRAINT `fk_seccion_has_dia_dia1` FOREIGN KEY (`dia_idDia`) REFERENCES `dia` (`idDia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_seccion_has_dia_seccion1` FOREIGN KEY (`seccion_idSeccion`) REFERENCES `seccion` (`idSeccion`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `usuario`
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `fk_usuario_perfil1` FOREIGN KEY (`perfil_idPerfil`) REFERENCES `perfil` (`idPerfil`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_usuario_persona1` FOREIGN KEY (`persona_idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_usuario_persona` FOREIGN KEY (`persona_idPersona`) REFERENCES `persona` (`idPersona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
