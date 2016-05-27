@@ -1,0 +1,14 @@
+.row {
+	width: 500px;
+	padding: 30px;
+	
+}
+
+.login {
+
+	background-color: #119098;
+}
+
+.input-field label {
+     color: #000;
+ }
