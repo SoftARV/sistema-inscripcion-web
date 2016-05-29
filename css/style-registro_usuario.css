@@ -3,29 +3,48 @@
 }
 
 .input-field label {
-	color: #000;
+	color: #E0E0E0;
+	
 }
 
 .input-field input[type="text"],
 .input-field input[type="password"],
 .input-field input[type="email"] {
-	border-bottom: 1px solid #000;
-	box-shadow: 0 1px 0 0 #000;
+	border-bottom: 1px solid #EFE2E2;
+	box-shadow: 0 1px 0 0 #DDDDDD;
 }
 
 .input-field input[type="text"]:focus + label,
 .input-field input[type="password"]:focus + label,
 .input-field input[type="email"]:focus + label {
-	color: #1a237e;
+	color: #0D069A;
 }
 
 .input-field input[type="text"]:focus,
 .input-field input[type="password"]:focus,
 .input-field input[type="email"]:focus {
-	border-bottom: 1px solid #1a237e;
-	box-shadow: 0 1px 0 0 #1a237e;
+	border-bottom: 1px solid #0D069A;
+	box-shadow: 0 1px 0 0 #0D069A;
 }
 
 .input-field .prefix.active {
-     color: #1a237e;
-   }
+		color: #0D069A;
+}
+.input-field .prefix{
+	color: #E0E0E0;
+}
+.cuerpo{
+
+	background-color: #05075E;
+}
+
+#boton{
+
+	background-color: #1826E5;
+}
+
+#cabezaPrincipal{
+	color: #FAE3E3;
+	
+}
+

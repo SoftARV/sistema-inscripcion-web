@@ -7,10 +7,10 @@
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style-registro_usuario.css">
 </head>
-<body class="blue">
+<body class="cuerpo">
 	<div class="container">
 		<div class="row blue lighten-3 z-depth-3 registro-form card">
-			<h2>Registro de Usuario</h2>
+			<h2 id="cabezaPrincipal">Registro de Usuario</h2>
 			<form action="" method="post">
 				<div class="row">
 					<div class="input-field col s6">
@@ -20,7 +20,7 @@
 					</div>
 					<div class="input-field col s6">
 						<input type="text" name="userLastName">
-						<label for="userLastName">Apellido</label>
+						<label  for="userLastName">Apellido</label>
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">assignment_ind</i>
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 				<div class="input-field">
-					<button class="btn waves-effect waves-light" type="submit">
+					<button id="boton" class="btn waves-effect waves-light" type="submit">
 						<i class="material-icons left">done</i>
 						Registrar Usuario
 					</button>
