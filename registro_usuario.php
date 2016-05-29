@@ -9,45 +9,49 @@
 </head>
 <body class="blue">
 	<div class="container">
-		<div class="row blue lighten-3 z-depth-3">
+		<div class="row blue lighten-3 z-depth-3 registro-form">
 			<h2>Registro de Usuario</h2>
-			<div class="input-field col m6">
-    			<i class="material-icons prefix">account_circle</i>
-				<input type="text" name="userName">
-				<label for="userName">Nombre</label>
-			</div>
-			<div class="input-field col m6">
-				<i class="material-icons prefix">account_circle</i>
-				<input type="text" name="userLastName">
-				<label for="userLastName">Apellido</label>
+			<div class="row">
+				<div class="input-field col s6">
+    				<i class="material-icons prefix">account_circle</i>
+					<input type="text" name="userName">
+					<label for="userName">Nombre</label>
+				</div>
+				<div class="input-field col s6">
+					<input type="text" name="userLastName">
+					<label for="userLastName">Apellido</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">assignment_ind</i>
+					<input type="text" name="userId">
+					<label for="userId">Cedula</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">call</i>
+					<input type="text" name="userPhone">
+					<label for="userPhone">Telefono</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">email</i>
+					<input type="email" name="userEmail">
+					<label for="userEmail">Correo</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">lock</i>
+					<input type="password" name="userPassword">
+					<label for="userPassword">Contraseña</label>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">lock</i>
+					<input type="password" name="repeatPassword">
+					<label for="repeatPassword">Repetir Contraseña</label>
+				</div>
 			</div>
 			<div class="input-field">
-				<i class="material-icons prefix">account_circle</i>
-				<input type="text" name="userId">
-				<label for="userId">Cedula</label>
-			</div>
-			<div class="input-field">
-				<i class="material-icons prefix">account_circle</i>
-				<input type="text" name="userPhone">
-				<label for="userPhone">Telefono</label>
-			</div>
-			<div class="input-field">
-				<i class="material-icons prefix">account_circle</i>
-				<input type="email" name="userEmail">
-				<label for="userEmail">Correo</label>
-			</div>
-			<div class="input-field">
-				<i class="material-icons prefix">account_circle</i>
-				<input type="password" name="userPassword">
-				<label for="userPassword">Contraseña</label>
-			</div>
-			<div class="input-field">
-				<i class="material-icons prefix">account_circle</i>
-				<input type="password" name="repeatPassword">
-				<label for="repeatPassword">Repetir Contraseña</label>
-			</div>
-			<div class="input-field">
-				<input class="waves-effect waves-light btn" type="submit" value="Registrar Usuario">
+				<button class="btn waves-effect waves-light" type="submit">
+					<i class="material-icons left">done</i>
+					Registrar Usuario
+				</button>
 			</div>
 		</div>
 	</div>

@@ -20,14 +20,14 @@
 		<h2>Iniciar sesion</h2>
      	<form action="login.php" method="post" >
 			<div class="input-field col s12">
-				<input class="correo" id="email" type="email" name="email"><br>
+				<input class="correo" id="email" type="email" name="email" required><br>
 				<label for="email">Correo</label>
 			</div>
 			<div class="input-field col s12">
-				<input class="password" id="password" type="password" name="password"><br>
+				<input class="password" id="password" type="password" name="password" required><br>
 				<label for="password">Contraseña</label>
 			</div>
-			<input class="login waves-effect waves-light btn" type="submit" >
+			<input class="login waves-effect waves-light btn" type="submit" value="Iniciar Sesion">
 		</form>
     </div>
 
