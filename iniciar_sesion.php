@@ -16,28 +16,27 @@
 	<link rel="stylesheet" href="css/materialize.min.css">
 	<link rel="stylesheet" href="css/style-iniciar_sesion.css">
 </head>
-<body id="cuerpo2">
+<body>
 	<div class="container">
-		<div class="iniciar-form row z-depth-3 blue lighten-3 card">
+		<div class="row z-depth-3 blue lighten-1 login-form card">
 			<h2>Iniciar sesion</h2>
-     		<form action="login.php" method="post" >
+     		<form action="login.php" method="post">
 				<div class="input-field col s12">
-					<i class="material-icons prefix">perm_identity</i>
-					<input class="correo" id="email" type="email" name="email" required><br>
-					<label for="email">Correo</label>
+					<i class="material-icons prefix">email</i>
+					<input type="email" name="userEmail">
+					<label for="userEmail">Correo</label>
 				</div>
 				<div class="input-field col s12">
-					<i class="material-icons prefix">person_pin</i>
-					<input class="password" id="password" type="password" name="password" required><br>
-					<label for="password">Contraseña</label>
+					<i class="material-icons prefix">lock</i>
+					<input type="password" name="userPassword">
+					<label for="userPassword">Contraseña</label>
 				</div>
-				<button id="boton2" class="btn waves-effect waves-light" type="submit">
-						Iniciar Sesion
-					</button>
+				<button class="btn waves-effect waves-default" type="submit">
+					Iniciar Sesion
+				</button>
 			</form>
    		 </div>
 	</div>
-
 
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/materialize.min.js"></script>

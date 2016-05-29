@@ -6,8 +6,8 @@
 
 	$connection = connectDatabase();
 
-	$inputEmail = $_POST['email'];
-	$inputPassword = $_POST['password'];
+	$inputEmail = $_POST['userEmail'];
+	$inputPassword = $_POST['userPassword'];
 
 	$sqlQuery = "SELECT correo, password FROM usuario WHERE correo = '" . $inputEmail . "';";
 

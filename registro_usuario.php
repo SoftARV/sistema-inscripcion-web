@@ -9,8 +9,8 @@
 </head>
 <body class="cuerpo">
 	<div class="container">
-		<div class="row blue lighten-3 z-depth-3 registro-form card">
-			<h2 id="cabezaPrincipal">Registro de Usuario</h2>
+		<div class="row blue lighten-1 z-depth-3 registro-form card">
+			<h2>Registro de Usuario</h2>
 			<form action="" method="post">
 				<div class="row">
 					<div class="input-field col s6">
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 				<div class="input-field">
-					<button id="boton" class="btn waves-effect waves-light" type="submit">
+					<button class="btn waves-effect waves-default" type="submit">
 						<i class="material-icons left">done</i>
 						Registrar Usuario
 					</button>
