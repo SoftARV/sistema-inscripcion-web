@@ -1,7 +1,8 @@
-.row {
-	width: 500px;
+.iniciar-form{
 	padding: 30px;
-	
+}
+#cuerpo2{
+	background-color: #05075E;
 }
 
 .login {
@@ -10,5 +11,35 @@
 }
 
 .input-field label {
-     color: #000;
+     color: #E0E0E0;
  }
+
+h2{
+	color: #FAE3E3;
+}
+
+#boton2{
+	background-color: #1826E5;
+}
+.input-field .prefix{
+	color: #E0E0E0;
+}
+.input-field .prefix.active {
+		color: #0D069A;
+}
+.input-field input[type="password"],
+.input-field input[type="email"] {
+	border-bottom: 1px solid #EFE2E2;
+	box-shadow: 0 1px 0 0 #DDDDDD;
+}
+.input-field input[type="email"]:focus + label,
+.input-field input[type="password"]:focus + label {
+	color: #0D069A;
+}
+
+
+.input-field input[type="password"]:focus,
+.input-field input[type="email"]:focus {
+	border-bottom: 1px solid #0D069A;
+	box-shadow: 0 1px 0 0 #0D069A;
+}
