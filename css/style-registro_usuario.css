@@ -7,18 +7,18 @@ body {
 }
 
 .registro-form h2{
-	color: #FAE3E3;
+	color: white;
 }
 
 .input-field label {
-	color: #E0E0E0;	
+	color: white;	
 }
 
 .input-field input[type="text"],
 .input-field input[type="password"],
 .input-field input[type="email"] {
-	border-bottom: 1px solid #EFE2E2;
-	box-shadow: 0 1px 0 0 #DDDDDD;
+	border-bottom: 1px solid white;
+	box-shadow: 0 1px 0 0 white;
 }
 
 .input-field input[type="text"]:focus + label,
@@ -35,7 +35,7 @@ body {
 }
 
 .input-field .prefix{
-	color: #E0E0E0;
+	color: white;
 }
 
 .input-field .prefix.active {
