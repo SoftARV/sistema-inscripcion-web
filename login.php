@@ -1,5 +1,6 @@
 <?php 
-
+	// TODO: implement a modular design to this script
+	
 	session_start();
 
 	include "bd/database.php";

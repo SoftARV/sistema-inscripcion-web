@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Registro de Usuario</h2>
-			<form action="" method="post">
+			<form action="register_user.php" method="post">
 				<div class="row">
 					<div class="input-field col s6">
     					<i class="material-icons prefix">account_circle</i>
