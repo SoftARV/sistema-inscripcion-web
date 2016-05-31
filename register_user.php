@@ -30,6 +30,7 @@
 					if ($user->num_rows > 0) {
 						while ($row = $user->fetch_assoc()) {
 							$sqlQuery = "INSERT INTO usuario VALUES (DEFAULT, '" . $inputEmail . "', '" . $inputPassword . "',  " . $row["idPersona"] . ", 2);";
+							$connection->query($sqlQuery);
 						}
 						echo "Registro Completado";
 					}
