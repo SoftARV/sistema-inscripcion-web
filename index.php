@@ -18,11 +18,9 @@
 <body>
 	<nav class="blue lighten-1 z-depth-3">
    		 <div class="nav-wrapper">
-      		<a href="#" class="brand-logo">Logo</a>
+      		<a href="#" class="brand-logo">Sistema CTT</a>
      		 <ul id="nav-mobile" class="right hide-on-med-and-down">
-       			 <li><a href="sass.html">Sass</a></li>
-       			 <li><a href="badges.html">Components</a></li>
-       			 <li><a href="collapsible.html">JavaScript</a></li>
+       			 <li><i class=" material-icons">power_settings_new</i></li>
      		 </ul>
    		 </div>
   	</nav>
@@ -31,20 +29,20 @@
 		<div class="row">
 			<div class="col m4">
 				<div class="card small blue lighten-1 z-depth-3 carta-principal">
-             		<i class="icono-principal iconos-menu material-icons">perm_identity</i> 
-					<a href="">Inscribir</a>
+             		<i class="icono-principal material-icons">contacts</i>
+					<h3>Inscribir</h3>
    				</div>
 			</div>
 			<div class="col m4">
 				<div class="card small blue lighten-1 z-depth-3 carta-principal">
-					<i class="icono-principal material-icons">perm_identity</i>
-					<h3>Inscribir</h3>
+					<i class="icono-principal material-icons">assignment_ind</i>
+					<h3>Profesores</h3>
 				</div>
 			</div>
 			<div class="col m4">
 				<div class="card small blue lighten-1 z-depth-3 carta-principal">
-					<i class="icono-principal material-icons">perm_identity</i>
-					<h3>Inscribir</h3>
+					<i class="icono-principal material-icons">grade</i>
+					<h3>Secciones</h3>
 				</div>
 			</div>
 		</div>
@@ -55,20 +53,16 @@
 			<div class="col m4">
 				<div class="card small blue lighten-1 z-depth-3 carta-principal">
 					<i class="icono-principal material-icons">perm_identity</i>
-					<h3>Inscribir</h3>
+					<h3>Alumnos</h3>
 				</div>
 			</div>
 			<div class="col m4">
+			   <a href="registro_usuario.php">
 				<div class="card small blue lighten-1 z-depth-3 carta-principal">
-					<i class="icono-principal material-icons">perm_identity</i>
-					<h3>Inscribir</h3>
+					<i class="icono-principal material-icons">supervisor_account</i>
+					<h3>Gestion de usuarios</h3>
 				</div>
-			</div>
-			<div class="col m4">
-				<div class="card small blue lighten-1 z-depth-3 carta-principal">
-					<i class="icono-principal material-icons">perm_identity</i>
-					<h3>Inscribir</h3>
-				</div>
+				</a>
 			</div>
 		</div>
 		

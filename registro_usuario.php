@@ -5,9 +5,19 @@
 	<title>Registro Usuario</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css">
-	<link type="text/css" rel="stylesheet" href="css/style-registro_usuario.css">
+	<link type="text/css" rel="stylesheet" href="css/style-forms.css">
 </head>
 <body class="cuerpo">
+	
+   <nav class="blue lighten-1 z-depth-3">
+   		 <div class="nav-wrapper">
+      		<a href="#" class="brand-logo">Sistema CTT</a>
+     		 <ul id="nav-mobile" class="right hide-on-med-and-down">
+       			 <li><i class=" material-icons">power_settings_new</i></li>
+     		 </ul>
+   		 </div>
+   </nav>
+   
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Registro de Usuario</h2>
