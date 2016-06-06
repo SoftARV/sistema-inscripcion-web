@@ -4,6 +4,7 @@ body {
 
 .registro-form {
 	padding: 30px;
+
 }
 
 .registro-form h2{
@@ -40,8 +41,14 @@ body {
 
 .input-field .prefix.active {
 		color: #0D069A;
-}
 
-.btn {
+}
+.btn{
 	background-color: #1826E5;
 }
+
+.boton_final {
+
+	bottom: 0px; left: 420px; 
+}
+
