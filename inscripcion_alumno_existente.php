@@ -23,17 +23,18 @@
 			<h2>Inscripcion de alumnos existente</h2>
 			<form action="register_user.php" method="post">
 				<div class="row">
-				    <div class="input-field col s6">
-						<i class="material-icons prefix">assignment_ind</i>
+				  <div class="input-field col s6">
+							<i class="material-icons prefix">assignment_ind</i>
 						  <input type="text" name="userId">
-						<label for="userId">Cedula</label>
+							<label for="userId">Cedula</label>
 					</div>
-					<div class="input-field col s6 boton_buscar">
+					<div class="boton_buscar input-field col s6">
 					    <button class="btn waves-effect waves-default" type="submit">
-						     buscar alumno existente
+						     buscar alumno
 					    </button>
 					</div>
-
+					</div>
+					<div class="row">
 					<div class="input-field col s6">
     					<i class="material-icons prefix">account_circle</i>
 						<input type="text" name="userName">
@@ -54,35 +55,35 @@
 							     <option value="" disabled selected></option>
 							      <option value="1">Option 1</option>
 							       <option value="2">Option 2</option>
-							     <option value="3">Option 3</option>
-						     </select>
-						    <label>Nombre del curso</label>
+							   		<option value="3">Option 3</option>
+						     	</select>
+						    	<label>Nombre del curso</label>
  						</div>
-					    <div class="input-field col s12">
+					 	<div class="input-field col s12">
 					      <i class="material-icons prefix">assignment_late</i>
 						    <select>
-							     <option value="" disabled selected></option>
+							     	<option value="" disabled selected></option>
 							      <option value="1">Option 1</option>
-							     <option value="2">Option 2</option>
-							    <option value="3">Option 3</option>
+							     	<option value="2">Option 2</option>
+							    	<option value="3">Option 3</option>
 						    </select>
-						  <label>Secciones</label>
-				        </div>
+						  	<label>Secciones</label>
+				    </div>
 						<div class="input-field col s12">
-						  <i class="material-icons prefix">schedule</i>
+						  	<i class="material-icons prefix">schedule</i>
 						    <select>
-							     <option value="" disabled selected></option>
+							     	<option value="" disabled selected></option>
 							      <option value="1">Option 1</option>
-							     <option value="2">Option 2</option>
-							    <option value="3">Option 3</option>
+							    	<option value="2">Option 2</option>
+							    	<option value="3">Option 3</option>
 						    </select>
-						  <label>Horarios</label>
-				        </div>
-
+						  	<label>Horarios</label>
+				    </div>
+				
 				</div>
 				<div class="input-field">
-					<button class="btn waves-effect waves-default boton_final" type="submit">
-						Inscribir Alumno nuevo
+					<button class="btn waves-effect waves-default" type="submit">
+						Inscribir Alumno
 					</button>
 				</div>
 			</form>
