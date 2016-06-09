@@ -33,7 +33,8 @@
 						     buscar alumno existente
 					    </button>
 					</div>
-
+					</div>
+					<div class="row">
 					<div class="input-field col s6">
     					<i class="material-icons prefix">account_circle</i>
 						<input type="text" name="userName">
