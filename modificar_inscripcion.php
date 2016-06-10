@@ -45,7 +45,7 @@
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">class</i>
 						     <select>
-							     <option value="" disabled selected></option>
+							     <option value="" disabled selected>Seleccionar Curso...</option>
 							      <option value="1">Option 1</option>
 							       <option value="2">Option 2</option>
 							     <option value="3">Option 3</option>

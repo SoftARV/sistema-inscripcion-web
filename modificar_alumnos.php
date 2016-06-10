@@ -32,17 +32,6 @@
 					    <button class="btn waves-effect waves-default" type="submit">
 						     buscar Alumno
 					    </button>
-					      <div class="preloader-wrapper small active">
-						     <div class="spinner-layer spinner-green-only">
-						       <div class="circle-clipper left">
-						         <div class="circle"></div>
-						       </div><div class="gap-patch">
-						         <div class="circle"></div>
-						       </div><div class="circle-clipper right">
-						         <div class="circle"></div>
-						       </div>
-						     </div>
-						   </div>
 					  </div>
 					 </div>
 					 <div class="row">
@@ -52,30 +41,20 @@
 						 <label for="userName">Nombre</label>
 					 </div>
 					  <div class="input-field col s6">
-					    <i class="material-icons prefix">account_circle</i>
+
 						   <input type="text" name="userLastName">
 					   <label  for="userLastName">Apellido</label>
 					</div>
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<i class="material-icons prefix">assignment_ind</i>
 						  <input type="text" name="userId">
 						<label for="userId">Cedula</label>
 					</div>
-					 <div class="input-field col s6">
+					 <div class="input-field col s12">
 					    <i class="material-icons prefix">call</i>
 						    <input type="text" name="userPhone">
 						 <label for="userPhone">Telefono</label>
 					 </div>
-					    <div class="input-field col s6">
-					      <i class="material-icons prefix">class</i>
-						     <select>
-							     <option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							       <option value="2">Option 2</option>
-							     <option value="3">Option 3</option>
-						     </select>
-						    <label>Nombre del curso</label>
- 						</div>
 
 				</div>
 				<div class="input-field">
