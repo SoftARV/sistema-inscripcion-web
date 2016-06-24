@@ -26,6 +26,7 @@ body {
 .input-field input[type="password"]:focus + label,
 .input-field input[type="email"]:focus + label {
 	color: #0D069A;
+
 }
 
 .input-field input[type="text"]:focus,
@@ -46,4 +47,9 @@ body {
 .btn{
 	background-color: #1826E5;
 }
+
+.brand-logo{
+	margin-left: 10px;
+}
+
 

@@ -2,7 +2,7 @@ body {
 	background-color: #05075E;
 }
 
-.carta-principal{
+.carta-principal {
 	width: 300px;
 	padding: 20px;
 	margin-left: auto;
@@ -11,12 +11,20 @@ body {
 	color: white;
 }
 
-.icono-principal{
+.carta-secundaria {
+	width: 80px;
+	text-align: center;
+	padding: 5px;
+	margin-left: 40px;
+	color: white;
+}
+
+.icono-principal {
 	margin-left: 60px;
 	font-size: 130px;
 }
 
-a{
+a {
 	margin-top: auto;
 	color: white;
 }
