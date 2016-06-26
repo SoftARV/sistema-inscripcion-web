@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Registro de profesor</title>
+	<title>Registro de Seccion</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style-forms.css">
@@ -13,39 +13,36 @@
    		 <div class="nav-wrapper">
       		<a href="index.php" class="brand-logo">Sistema CTT</a>
      		 <ul id="nav-mobile" class="right hide-on-med-and-down">
-       			 <li><a href="modules/logout.php"><i class=" material-icons">power_settings_new</i></a></li>
+       			 <li><i class=" material-icons">power_settings_new</i></li>
      		 </ul>
    		 </div>
-  	</nav>
+   </nav>
    
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
-			<h2>Registro de Profesor</h2>
-			 <form action="register_user.php" method="post">
-				 <div class="row">
-				 	 <div class="input-field col s6">
-    					 <i class="material-icons prefix">account_circle</i>
-						  <input type="text" name="userName">
-						 <label for="userName">Nombre</label>
-					 </div>
-					 <div class="input-field col s6">
-						 <input type="text" name="userLastName">
-						  <label  for="userLastName">Apellido</label>
-					 </div>
-				   	 <div class="input-field col s12">
-					 	 <i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="userId">
-						 <label for="userId">Cedula</label>
-					 </div>
-					 <div class="input-field col s12">
-						 <i class="material-icons prefix">call</i>
-						   <input type="text" name="userPhone">
-						 <label for="userPhone">Telefono</label>
-					 </div>
+			<h2>Registro de Salones nuevos</h2>
+			<form action="register_user.php" method="post">
+				<div class="row">
+						<div class="input-field col s6">
+						   <i class="material-icons prefix">business</i>
+							 <input type="text" name="userLastName">
+						   <label  for="userLastName">Bloque</label>
+						</div>
+						<div class="input-field col s6">
+						   <i class="material-icons prefix">class</i>
+							 <input type="text" name="userLastName">
+						   <label  for="userLastName">Salon</label>
+						</div>
+						<div class="input-field col s6">
+						<i class="material-icons prefix">aspect_ratio</i>
+							 <input type="text" name="userLastName">
+						   <label  for="userLastName">Capacidad</label>
+						</div>
+
 				</div>
 				<div class="input-field">
 					<button class="btn waves-effect waves-default" type="submit">
-						Registrar profesor
+						Registrar de Salon
 					</button>
 				</div>
 			</form>

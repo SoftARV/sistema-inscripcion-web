@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Modificacion de alumnos</title>
+	<title>Consultas de alumnos</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style-forms.css">
@@ -20,7 +20,7 @@
    
 	 <div class="container">
 		 <div class="row blue lighten-1 z-depth-3 registro-form card">
-			 <h2>Modificacion de Alumnos</h2>
+			 <h2>Consultar Alumnos</h2>
 			   <form action="register_user.php" method="post">
 				 <div class="row">
 				     <div class="input-field col s6">
@@ -35,33 +35,44 @@
 					  </div>
 					 </div>
 					 <div class="row">
-					  <div class="input-field col s6">
-    					 <i class="material-icons prefix">account_circle</i>
-						    <input type="text" name="userName">
-						 <label for="userName">Nombre</label>
-					 </div>
-					  <div class="input-field col s6">
+					 	<table class="centered">
+					        <thead class="table-1">
+					          <tr>
+					              <th data-field="cedula">Cedula</th>
+					              <th data-field="nombre">Nombre</th>
+					              <th data-field="apellido">Apellido</th>
+					              <th data-field="telefono">Telefono</th>
+					          </tr>
+					        </thead>
 
-						   <input type="text" name="userLastName">
-					   <label  for="userLastName">Apellido</label>
-					</div>
-					<div class="input-field col s12">
-						<i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="userId">
-						<label for="userId">Cedula</label>
-					</div>
-					 <div class="input-field col s12">
-					    <i class="material-icons prefix">call</i>
-						    <input type="text" name="userPhone">
-						 <label for="userPhone">Telefono</label>
-					 </div>
+					        <tbody class="table-2">
+					          <tr>
+					            <td>22058538</td>
+					            <td>Nelson</td>
+					            <td>Torres</td>
+					            <td>052134</td>
+					          </tr>
+					        </tbody>
+					      	<thead class="table-1">
+					          <tr>
+					              <th data-field="curso">Curso</th>
+					              <th data-field="seccion">Seccion</th>
+					              <th data-field="salon">Salon</th>
+					              <th data-field="horas">Horas</th>
+					          </tr>
+					        </thead>
 
-				</div>
-				<div class="input-field">
-					<button class="btn waves-effect waves-default boton_final" type="submit">
-						Modificar Alumno
-					</button>
-				</div>
+					        <tbody class="table-2">
+					          <tr>
+					            <td>CCNA</td>
+					            <td>N/23</td>
+					            <td>F-23</td>
+					            <td>de 9 a 11</td>
+					          </tr>
+					        </tbody>
+					      </table>
+					 </div>
+					  
 			</form>
 		</div>
 	</div>

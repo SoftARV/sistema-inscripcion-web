@@ -2,7 +2,7 @@
 
 	session_start();
 
-	include "bd/database.php";
+	include "../bd/database.php";
 
 	$connection = connectDatabase();
 

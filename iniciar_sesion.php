@@ -20,7 +20,7 @@
 	<div class="container">
 		<div class="row z-depth-3 blue lighten-1 login-form card">
 			<h2>Iniciar sesion</h2>
-     		<form action="login.php" method="post">
+     		<form action="modules/login.php" method="post">
 				<div class="input-field col s12">
 					<i class="material-icons prefix">email</i>
 					<input type="email" name="userEmail">

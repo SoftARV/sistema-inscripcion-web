@@ -11,12 +11,12 @@
 	
      <nav class="blue lighten-1 z-depth-3">
    		 <div class="nav-wrapper">
-      		<a href="#" class="brand-logo">Sistema CTT</a>
+      		<a href="index.php" class="brand-logo">Sistema CTT</a>
      		 <ul id="nav-mobile" class="right hide-on-med-and-down">
-       			 <li><i class=" material-icons">power_settings_new</i></li>
+       			 <li><a href="modules/logout.php"><i class=" material-icons">power_settings_new</i></a></li>
      		 </ul>
    		 </div>
-     </nav>
+  	</nav>
    
 	 <div class="container">
 		 <div class="row blue lighten-1 z-depth-3 registro-form card">

@@ -11,17 +11,29 @@
 	
      <nav class="blue lighten-1 z-depth-3">
    		 <div class="nav-wrapper">
-      		<a href="#" class="brand-logo">Sistema CTT</a>
+      		<a href="index.php" class="brand-logo">Sistema CTT</a>
      		 <ul id="nav-mobile" class="right hide-on-med-and-down">
-       			 <li><i class=" material-icons">power_settings_new</i></li>
+       			 <li><a href="modules/logout.php"><i class=" material-icons">power_settings_new</i></a></li>
      		 </ul>
    		 </div>
-     </nav>
+  	</nav>
    
 	 <div class="container">
 		 <div class="row blue lighten-1 z-depth-3 registro-form card">
 			 <h2>Modificacion de Inscripcion</h2>
 			   <form action="register_user.php" method="post">
+				 <div class="row">
+				     <div class="input-field col s6">
+						<i class="material-icons prefix">assignment_ind</i>
+						  <input type="text" name="userId">
+						<label for="userId">Cedula</label>
+					 </div>
+					 <div class="input-field col s6 boton_buscar">
+					    <button class="btn waves-effect waves-default" type="submit">
+						     buscar Alumno
+					    </button>
+					  </div>
+					 </div>
 				 <div class="row">
 				      <div class="input-field col s6">
     					  <i class="material-icons prefix">account_circle</i>
@@ -32,11 +44,6 @@
 						 <input type="text" name="userLastName">
 					  <label  for="userLastName">Apellido</label>
 					</div>
-					 <div class="input-field col s12">
-						 <i class="material-icons prefix">assignment_ind</i>
-					    <input type="text" name="userId">
-					   <label for="userId">Cedula</label>
-					</div>
 					  <div class="input-field col s12">
 						 <i class="material-icons prefix">call</i>
 						   <input type="text" name="userPhone">
@@ -44,8 +51,8 @@
 					  </div>
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">class</i>
-						     <select>
-							     <option value="" disabled selected>Seleccionar Curso...</option>
+						     <select class="option-1">
+							     <option value="" disabled selected > Seleccionar Curso...</option>
 							      <option value="1">Option 1</option>
 							       <option value="2">Option 2</option>
 							     <option value="3">Option 3</option>
@@ -54,8 +61,8 @@
  						</div>
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">assignment_late</i>
-						    <select>
-							     <option value="" disabled selected></option>
+						    <select class="option-1">
+							     <option value="" disabled selected>Seleccionar seccion...</option>
 							      <option value="1">Option 1</option>
 							     <option value="2">Option 2</option>
 							    <option value="3">Option 3</option>
@@ -64,8 +71,8 @@
 				        </div>
 						<div class="input-field col s12">
 						  <i class="material-icons prefix">schedule</i>
-						    <select>
-							     <option value="" disabled selected></option>
+						    <select class="option-1">
+							     <option value="" disabled selected>seleccionar horario...</option>
 							      <option value="1">Option 1</option>
 							     <option value="2">Option 2</option>
 							    <option value="3">Option 3</option>
