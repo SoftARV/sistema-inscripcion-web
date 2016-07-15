@@ -21,24 +21,44 @@
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Registro de Salones nuevos</h2>
-			<form action="register_user.php" method="post">
+			<form action="modules/registers.php" method="post">
+				<!-- inputs hiddens -->
+				<input type="text" name="opcion" value="2" hidden>
+				<input type="text" name="nombre" hidden>
+				<input type="text" name="apellido" hidden>
+				<input type="text" name="cedula" hidden>
+				<input type="text" name="telefono" hidden>
+				<!--  -->
 				<div class="row">
 						<div class="input-field col s6">
-						   <i class="material-icons prefix">business</i>
-							 <input type="text" name="userLastName">
-						   <label  for="userLastName">Bloque</label>
+						   	<i class="material-icons prefix">business</i>
+							<select name="bloque">
+							    <option value="" disabled selected>Elige un Bloque</option>
+							    <option value="F">F</option>
+							    <option value="G">G</option>
+						    </select>
 						</div>
 						<div class="input-field col s6">
-						   <i class="material-icons prefix">class</i>
-							 <input type="text" name="userLastName">
-						   <label  for="userLastName">Salon</label>
+						   	<i class="material-icons prefix">class</i>
+								<select name="salon">
+								    <option value="" disabled selected>Elige un Bloque</option>
+								    <option value="1">1</option>
+								    <option value="2">2</option>
+								    <option value="3">3</option>
+								    <option value="4">4</option>
+								    <option value="5">5</option>
+								    <option value="6">6</option>
+								    <option value="7">7</option>
+								    <option value="8">8</option>
+								    <option value="9">9</option>
+								    <option value="10">10</option>
+						    	</select>
 						</div>
 						<div class="input-field col s6">
 						<i class="material-icons prefix">aspect_ratio</i>
-							 <input type="text" name="userLastName">
-						   <label  for="userLastName">Capacidad</label>
+							 <input type="number" name="capacidad">
+						   <label  for="capacidad">Capacidad</label>
 						</div>
-
 				</div>
 				<div class="input-field">
 					<button class="btn waves-effect waves-default" type="submit">
@@ -48,7 +68,7 @@
 			</form>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script>
@@ -56,5 +76,11 @@
 		      $('select').material_select();
 		  });
  	</script>
+ 	
+	<?php if(isset($_GET['mensaje'])): ?>
+	<script>
+		Materialize.toast($_GET['mensaje'], 4000);
+	</script>
+	<?php endif; ?>
 </body>
 </html>

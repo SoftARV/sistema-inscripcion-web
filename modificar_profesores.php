@@ -18,7 +18,7 @@
    		 </div>
   	</nav>
    
-	 <div class="container">
+	<div class="container">
 		 <div class="row blue lighten-1 z-depth-3 registro-form card">
 			 <h2>Modificacion de profesores</h2>
 			   <form action="register_user.php" method="post">
@@ -49,27 +49,6 @@
 						  <input type="text" name="userPhone">
 						<label for="userPhone">Telefono</label>
 					</div>
-					    <div class="input-field col s12">
-					      <i class="material-icons prefix">class</i>
-						     <select>
-							     <option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							       <option value="2">Option 2</option>
-							     <option value="3">Option 3</option>
-						     </select>
-						    <label>Nombre del curso</label>
- 						</div>
-					    <div class="input-field col s12">
-					      <i class="material-icons prefix">assignment_late</i>
-						    <select>
-							     <option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							     <option value="2">Option 2</option>
-							    <option value="3">Option 3</option>
-						    </select>
-						  <label>Secciones</label>
-				        </div>
-
 				</div>
 				<div class="input-field">
 					<button class="btn waves-effect waves-default boton_final" type="submit">

@@ -25,7 +25,6 @@
    		 </div>
   	</nav>
 
-  	
 		<div class="row">
 			<div class="col m4">
 				<div class="card small blue lighten-1 z-depth-3 carta-principal p1">
@@ -45,7 +44,7 @@
    					</a>
    					<a href="modificar_inscripcion.php">
 	   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
-							<p>Modificar Alumnos</p>
+							<p>Modificar Inscripcion</p>
 	   					</div>
    					</a>
    					<a href="">
@@ -100,6 +99,7 @@
 			</div>
 		 <?php endif; ?>
 		 </div>
+		 
 		 <div class="row">
 		 <?php if($_SESSION['perfilUser'] == 1): ?>
 			<div class="col m4">

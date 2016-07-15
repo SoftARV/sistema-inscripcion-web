@@ -4,6 +4,8 @@
 
 	$connection = connectDatabase();
 
+	echo $_POST['opcion'];
+
 	function registroProfesores() {
 		$nombre 	= $_POST['nombre'];
 		$apellido 	= $_POST['apellido'];
@@ -40,7 +42,7 @@
 					$sqlQuery = "INSERT INTO profesor VALUES (DEFAULT, ". $person['idPersona'] .");";
 					if ($GLOBALS['connection']->query($sqlQuery)) {
 						// si el registro es exitoso se envia un mensaje de exito 
-						echo "persona ya existente registro completado";
+						echo "persona ya existente registro completad	o";
 					}
 				}else {
 					// si la persona esta ya registrada como profesor se procede a dar un mensaje de error
@@ -51,11 +53,32 @@
 		}
 	}
 
+	function registroSalones() {
+		$bloque 	= $_POST['bloque'];
+		$salon 	= $_POST['salon'];
+		$capacidad 	= intval($_POST['capacidad']);
+
+		$sqlQuery = 'SELECT * FROM salon WHERE bloque = "'.$bloque.'" AND numero = "'.$salon.'";';
+		$roomsFindded = $GLOBALS['connection']->query($sqlQuery);
+		if ($roomsFindded->num_rows == 0) {
+			$sqlQuery = 'INSERT INTO salon VALUES (DEFAULT, "'.$bloque.'", "'.$salon.'", '.$capacidad.');';
+			if ($GLOBALS['connection']->query($sqlQuery)) {
+				header('Location: ../registrar_salones.php?mensaje=Salon Registrado');
+			}
+		} else {
+			header('Location: ../registrar_salones.php?mensaje=Salon Ya Registrado');
+		}
+	}
+
 	switch ($_POST['opcion']) {
 		case '1':
 			registroProfesores();
 			break;
-		
+
+		case '2':
+			registroSalones();
+			break;
+
 		default:
 			# code...
 			break;

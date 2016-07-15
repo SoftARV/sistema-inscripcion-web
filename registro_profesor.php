@@ -22,7 +22,12 @@
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Registro de Profesor</h2>
 			 <form action="modules/registers.php" method="post">
+			 	<!-- inputs hiddens -->
 			 	<input type="text" name="opcion" value="1" hidden>
+			 	<input type="text" name="bloque" hidden>
+				<input type="text" name="salon" hidden>
+				<input type="text" name="capacidad" hidden>
+			 	<!--  -->
 				 <div class="row">
 				 	 <div class="input-field col s6">
     					 <i class="material-icons prefix">account_circle</i>
@@ -49,7 +54,6 @@
 						Registrar profesor
 					</button>
 				</div>
-				
 			</form>
 		</div>
 	</div>
