@@ -4,8 +4,6 @@
 
 	$connection = connectDatabase();
 
-	echo $_POST['opcion'];
-
 	function registroProfesores() {
 		$nombre 	= $_POST['nombre'];
 		$apellido 	= $_POST['apellido'];
@@ -26,8 +24,8 @@
 				while ($person = $personFinded->fetch_assoc()) {
 					$sqlQuery = "INSERT INTO profesor VALUES (DEFAULT, ". $person['idPersona'] .");";
 					if ($GLOBALS['connection']->query($sqlQuery)) {
-						// si el registro es exitoso se envia un mensaje de exito 
-						echo "registro completado";
+						// si el registro es exitoso se envia un mensaje de exito
+						header('Location: ../registro_profesor.php?mensaje=registrado');
 					}
 				}
 
@@ -42,11 +40,12 @@
 					$sqlQuery = "INSERT INTO profesor VALUES (DEFAULT, ". $person['idPersona'] .");";
 					if ($GLOBALS['connection']->query($sqlQuery)) {
 						// si el registro es exitoso se envia un mensaje de exito 
-						echo "persona ya existente registro completad	o";
+						header('Location: ../registro_profesor.php?mensaje=registrado');
 					}
 				}else {
 					// si la persona esta ya registrada como profesor se procede a dar un mensaje de error
-					echo "profesor ya registrado";
+					header('Location: ../registro_profesor.php?mensaje=yaregistrado');
+
 				}
 			}
 			
@@ -54,7 +53,7 @@
 	}
 
 	function registroSalones() {
-		$bloque 	= $_POST['bloque'];
+		$bloque = $_POST['bloque'];
 		$salon 	= $_POST['salon'];
 		$capacidad 	= intval($_POST['capacidad']);
 
@@ -63,10 +62,10 @@
 		if ($roomsFindded->num_rows == 0) {
 			$sqlQuery = 'INSERT INTO salon VALUES (DEFAULT, "'.$bloque.'", "'.$salon.'", '.$capacidad.');';
 			if ($GLOBALS['connection']->query($sqlQuery)) {
-				header('Location: ../registrar_salones.php?mensaje=Salon Registrado');
+				header('Location: ../registrar_salones.php?mensaje=registrado');
 			}
 		} else {
-			header('Location: ../registrar_salones.php?mensaje=Salon Ya Registrado');
+			header('Location: ../registrar_salones.php?mensaje=yaregistrado');
 		}
 	}
 

@@ -38,29 +38,32 @@
 							$sqlQuery = "INSERT INTO usuario VALUES (DEFAULT, '" . $inputEmail . "', '" . $inputPassword . "',  " . $row["idPersona"] . ", 2);";
 							$connection->query($sqlQuery);
 						}
-						echo "Registro Completado";
+						header('Location: ../registro_usuario.php?mensaje=registrado');
 					}
 				}
 			}
 		} else {
 			// if user identification exist have to verify if it doesnt have login credentials
-			while ($user = $personFinded->fetch_assoc()) {
-				$sqlQuery = "SELECT * FROM usuario WHERE persona_idPersona = '" . $user . "';";
+			while ($row = $personFinded->fetch_assoc()) {
+				$userId = $row['idPersona'];
+				$sqlQuery = "SELECT * FROM usuario WHERE persona_idPersona = '" . $userId . "';";
 				$usersFinded = $connection->query($sqlQuery);
 				
 				// check if the person have login credential
 				if ($usersFinded->num_rows == 0) {
-					$sqlQuery = "INSERT INTO usuario VALUES (DEFAULT, '" . $inputEmail . "', '" . $inputPassword . "',  " . $user . ", 2);";
-					$connection->query($sqlQuery);
+					$sqlQuery = "INSERT INTO usuario VALUES (DEFAULT, '" . $inputEmail . "', '" . $inputPassword . "',  " . $userId . ", 2);";
+					if ($connection->query($sqlQuery)) {
+						header('Location: ../registro_usuario.php?mensaje=registrado');
+					}
 				}else {
 					// User Already exist
-					echo "Usuario ya existe";
+					header('Location: ../registro_usuario.php?mensaje=yaregistrado');
 				}
 			}
 
 		}
 	} else {
-		echo "contraseñas no son iguales";
+		header('Location: ../registro_usuario.php?mensaje=passsame');
 	}
 
 

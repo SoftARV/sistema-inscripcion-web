@@ -37,7 +37,7 @@
 							<p>Alumno nuevo</p>
 	   					</div>
    					</a>
-   					<a href="inscripcion_alumno_nuevo.php">
+   					<a href="inscripcion_alumno_existente.php">
 	   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
 							<p>Alumno existente</p>
 	   					</div>

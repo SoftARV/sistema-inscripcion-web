@@ -31,26 +31,26 @@
 				 <div class="row">
 				 	 <div class="input-field col s6">
     					 <i class="material-icons prefix">account_circle</i>
-						  <input type="text" name="nombre">
+						  <input type="text" name="nombre" required>
 						 <label for="userName">Nombre</label>
 					 </div>
 					 <div class="input-field col s6">
-						 <input type="text" name="apellido">
+						 <input type="text" name="apellido" required>
 						  <label  for="userLastName">Apellido</label>
 					 </div>
 				   	 <div class="input-field col s12">
 					 	 <i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="cedula">
+						  <input type="text" name="cedula" required>
 						 <label for="userId">Cedula</label>
 					 </div>
 					 <div class="input-field col s12">
 						 <i class="material-icons prefix">call</i>
-						   <input type="text" name="telefono">
+						   <input type="text" name="telefono" required>
 						 <label for="userPhone">Telefono</label>
 					 </div>
 				</div>
 				<div class="input-field">
-					<button class="btn waves-effect waves-default" onclick="Materialize.toast('Registro Exitoso', 4000)" type="submit">
+					<button class="btn waves-effect waves-default" type="submit">
 						Registrar profesor
 					</button>
 				</div>
@@ -65,5 +65,20 @@
 		      $('select').material_select();
 		  });
  	</script>
+
+ 	<?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'registrado') { ?>
+	<script>
+		Materialize.toast('Profesor registrado con exito', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'yaregistrado') { ?>
+	<script>
+		Materialize.toast('Error: Profesor ya registrado', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje'])) { ?>
+	<script>
+		Materialize.toast('Error', 5000);
+	</script>
+	<?php } ?>
+
 </body>
 </html>

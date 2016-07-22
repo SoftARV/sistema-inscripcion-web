@@ -40,7 +40,7 @@
 						</div>
 						<div class="input-field col s6">
 						   	<i class="material-icons prefix">class</i>
-								<select name="salon">
+								<select name="salon" required>
 								    <option value="" disabled selected>Elige un Bloque</option>
 								    <option value="1">1</option>
 								    <option value="2">2</option>
@@ -56,7 +56,7 @@
 						</div>
 						<div class="input-field col s6">
 						<i class="material-icons prefix">aspect_ratio</i>
-							 <input type="number" name="capacidad">
+							 <input type="number" name="capacidad" required>
 						   <label  for="capacidad">Capacidad</label>
 						</div>
 				</div>
@@ -77,10 +77,20 @@
 		  });
  	</script>
  	
-	<?php if(isset($_GET['mensaje'])): ?>
+	<?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'registrado') { ?>
 	<script>
-		Materialize.toast($_GET['mensaje'], 4000);
+		Materialize.toast('Salon registrado con exito', 5000);
 	</script>
-	<?php endif; ?>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'yaregistrado') { ?>
+	<script>
+		Materialize.toast('Error: Salon ya registrado', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje'])) { ?>
+	<script>
+		Materialize.toast('Error', 5000);
+	</script>
+	<?php } ?>
+
+
 </body>
 </html>
