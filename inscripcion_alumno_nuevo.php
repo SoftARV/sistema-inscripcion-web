@@ -44,8 +44,8 @@
 					</div>
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">class</i>
-						     <select class="option-1 select-curso">
-							     <option value="" disabled selected></option>
+						     <select class="option-1 select-curso" id="list-select">
+							     <option value="Seleccione un Curso" disabled selected></option>
 							      <option value="1">Option 1</option>
 							       <option value="2">Option 2</option>
 							     <option value="3">Option 3</option>
@@ -54,25 +54,11 @@
  						</div>
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">assignment_late</i>
-						    <select class="option-1">
-							     <option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							     <option value="2">Option 2</option>
-							    <option value="3">Option 3</option>
+						    <select class="option-1" id="list-target">
+							     <option value="Seleccione una Seccion" disabled selected></option>
 						    </select>
 						  <label>Secciones</label>
 				        </div>
-						<div class="input-field col s12">
-						  <i class="material-icons prefix">schedule</i>
-						    <select class="option-1">
-							     <option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							     <option value="2">Option 2</option>
-							    <option value="3">Option 3</option>
-						    </select>
-						  <label>Horarios</label>
-				        </div>
-
 				</div>
 				<div class="input-field">
 					<button class="btn waves-effect waves-default" type="submit">

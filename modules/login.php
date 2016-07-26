@@ -21,10 +21,10 @@
 				$_SESSION['perfilUser'] = $row['perfil_idPerfil'];
 				header('Location: ../index.php');
 			} else {
-				header('Location: ../index.php');
+				header('Location: ../iniciar_sesion.php?mensaje=errorpass');
 			}
 		}
 	} else {
-		header('Location: ../index.php');
+		header('Location: ../iniciar_sesion.php?mensaje=erroruser');
 	}
 ?>

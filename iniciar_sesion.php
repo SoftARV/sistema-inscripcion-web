@@ -40,5 +40,20 @@
 
 	<script src="js/jquery-2.2.4.min.js"></script>
 	<script src="js/materialize.min.js"></script>
+	
+	<?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'errorpass') { ?>
+	<script>
+		Materialize.toast('Error: Contraseña Incorrecta', 6000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'erroruser') { ?>
+	<script>
+		Materialize.toast('Error: Usuario No Existente', 6000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje'])) { ?>
+	<script>
+		Materialize.toast('Error', 6000);
+	</script>
+	<?php } ?>
+
 </body>
 </html>
