@@ -66,12 +66,12 @@
 							<p>Consultar Alummnos</p>
 	   					</div>
    					</a>
-   					<a href="">
+   					<a href="consultar_profesor.php">
 	   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
 							<p>Consultar Profesores</p>
 	   					</div>
    					</a>
-   					<a href="">
+   					<a href="consultar_seccion.php">
 	   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
 							<p>Consultar Secciones</p>
 	   					</div>
@@ -139,12 +139,12 @@
 								<p>Nueva</p>
 		   					</div>
 	   					</a>
-	   					<a href="">
+	   					<a href="modificar_usuario.php">
 		   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
 								<p>Modificar</p>
 		   					</div>
 	   					</a>
-	   					<a href="">
+	   					<a href="consultar_usuario.php">
 		   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
 								<p>Consultar</p>
 		   					</div>

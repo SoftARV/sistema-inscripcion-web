@@ -1,3 +1,7 @@
+<?php 
+	include "bd/database.php";
+	$connection = connectDatabase();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,48 +24,44 @@
    
 	 <div class="container">
 		 <div class="row blue lighten-1 z-depth-3 registro-form card">
-			 <h2>Consultar Usuarios</h2>
-			   <form action="register_user.php" method="post">
-				 <div class="row">
-				     <div class="input-field col s6">
-						<i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="userId">
-						<label for="userId">Ingrese la cedula</label>
-					 </div>
-					 <div class="input-field col s6 boton_buscar">
-					    <button class="btn waves-effect waves-default" type="submit">
-						     buscar 
-					    </button>
-					  </div>
-					 </div>
-					 <div class="row">
-					 	<table class="centered">
-					        <div class="input-field col s6">
-		    					<i class="material-icons prefix">account_circle</i>
-								<input type="text" name="userName">
-								<label for="userName">Nombre</label>
-							</div>
-							<div class="input-field col s6">
-								<input type="text" name="userLastName">
-								<label  for="userLastName">Apellido</label>
-							</div>
-							<div class="input-field col s12">
-								<i class="material-icons prefix">assignment_ind</i>
-								<input type="text" name="userId">
-								<label for="userId">Cedula</label>
-							</div>
-							<div class="input-field col s12">
-								<i class="material-icons prefix">call</i>
-								<input type="text" name="userPhone">
-								<label for="userPhone">Telefono</label>
-							</div>
-							<div class="input-field col s12">
-								<i class="material-icons prefix">email</i>
-								<input type="email" name="userEmail">
-								<label for="userEmail">Correo</label>
-							</div>
-					 </div>
-					  
+			<h2>Consultar Usuarios</h2>
+			<form action="" method="post">
+				<div class="row">
+					<table class="centered">
+					    <thead class="table-1">
+					        <tr>
+					            <th data-field="nombre">Nombre</th>
+					            <th data-field="apellido">Apellido</th>
+					            <th data-field="correo">Correo</th>
+					            <th data-field="contrasena">Contraseña</th>
+					            <th data-field="perfil">Perfil</th>
+					        </tr>
+					    </thead>
+					    <tbody class="table-2">
+					        <?php 
+
+					        	$sqlQuery = 'SELECT nombre, apellido, correo, password, tipoPerfil FROM usuario JOIN persona JOIN perfil ON idPersona = persona_idPersona AND idPerfil = perfil_idPerfil';
+					        	$seccionFinded =  $connection->query($sqlQuery);
+								if ($seccionFinded->num_rows != 0) {
+									while ($seccion = $seccionFinded->fetch_assoc()) {
+										echo "	<tr>
+							           				<td>".$seccion['nombre']."</td>
+								            		<td>".$seccion['apellido']."</td>
+								            		<td>".$seccion['correo']."</td>
+								            		<td>".$seccion['password']."</td>
+								            		<td>".$seccion['tipoPerfil']."</td>
+						          				</tr>";
+									}
+								}else {
+									echo "	<tr>
+						         				<td colspan='5'>No hay registros</td>
+					          				</tr>";
+								}
+
+					        ?>
+					    </tbody>
+					</table>
+				</div>	  
 			</form>
 		</div>
 	</div>

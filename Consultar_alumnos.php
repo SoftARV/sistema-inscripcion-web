@@ -1,3 +1,7 @@
+<?php 
+	include "bd/database.php";
+	$connection = connectDatabase();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,57 +26,63 @@
 		 <div class="row blue lighten-1 z-depth-3 registro-form card">
 			 <h2>Consultar Alumnos</h2>
 			   <form action="register_user.php" method="post">
-				 <div class="row">
-				     <div class="input-field col s6">
-						<i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="userId">
-						<label for="userId">Cedula</label>
-					 </div>
-					 <div class="input-field col s6 boton_buscar">
-					    <button class="btn waves-effect waves-default" type="submit">
-						     buscar Alumno
-					    </button>
-					  </div>
-					 </div>
-					 <div class="row">
+					<div class="row">
 					 	<table class="centered">
+					 		<thead class="table-1">
+					          	<tr>
+					              	<th data-field="cedula">Cedula</th>
+					              	<th data-field="nombre">Nombre</th>
+					              	<th data-field="apellido">Apellido</th>
+					              	<th data-field="telefono">Curso</th>
+					              	<th data-field="telefono">Seccion</th>
+					          	</tr>
+					        </thead>
+					        <tbody class="table-2">
+							<?php 
+
+								$sqlQuery = 'SELECT cedula, nombre, apellido, nombreCurso, codigoSeccion FROM persona JOIN alumno JOIN seccion JOIN curso JOIN inscripcion ON idPersona = persona_idPersona AND idAlumno = alumno_idAlumno AND idSeccion = seccion_idSeccion AND idCurso = curso_idCurso';
+								$alumnoFinded =  $connection->query($sqlQuery);
+								if ($alumnoFinded->num_rows != 0) {
+									while ($alumno = $alumnoFinded->fetch_assoc()) {
+										echo "	<tr>
+						            				<td>".$alumno['cedula']."</td>
+								            		<td>".$alumno['nombre']."</td>
+								            		<td>".$alumno['apellido']."</td>
+								            		<td>".$alumno['nombreCurso']."</td>
+								            		<td>".$alumno['codigoSeccion']."</td>
+						          				</tr>";
+									}
+								}else {
+									echo "	<tr>
+					              				<td colspan='5'>No hay registros</td>
+					          				</tr>";
+								}
+								
+
+							?>
+							</tbody>
+
+
+					        <!-- 
 					        <thead class="table-1">
-					          <tr>
-					              <th data-field="cedula">Cedula</th>
-					              <th data-field="nombre">Nombre</th>
-					              <th data-field="apellido">Apellido</th>
-					              <th data-field="telefono">Telefono</th>
-					          </tr>
+					          	<tr>
+					              	<th data-field="cedula">Cedula</th>
+					              	<th data-field="nombre">Nombre</th>
+					              	<th data-field="apellido">Apellido</th>
+					              	<th data-field="telefono">Telefono</th>
+					          	</tr>
 					        </thead>
-
 					        <tbody class="table-2">
-					          <tr>
-					            <td>22058538</td>
-					            <td>Nelson</td>
-					            <td>Torres</td>
-					            <td>052134</td>
-					          </tr>
+					          	<tr>
+					            	<td>22058538</td>
+					            	<td>Nelson</td>
+					            	<td>Torres</td>
+					            	<td>052134</td>
+					          	</tr>
 					        </tbody>
-					      	<thead class="table-1">
-					          <tr>
-					              <th data-field="curso">Curso</th>
-					              <th data-field="seccion">Seccion</th>
-					              <th data-field="salon">Salon</th>
-					              <th data-field="horas">Horas</th>
-					          </tr>
-					        </thead>
-
-					        <tbody class="table-2">
-					          <tr>
-					            <td>CCNA</td>
-					            <td>N/23</td>
-					            <td>F-23</td>
-					            <td>de 9 a 11</td>
-					          </tr>
-					        </tbody>
-					      </table>
-					 </div>
-					  
+					         -->
+					    </table>
+					</div>  
 			</form>
 		</div>
 	</div>

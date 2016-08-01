@@ -1,3 +1,7 @@
+<?php 
+	include "bd/database.php";
+	$connection = connectDatabase();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,65 +25,43 @@
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Inscripcion de alumnos existente</h2>
-			<form action="register_user.php" method="post">
+			<form action="modules/inscripcion.php" method="post">
+				<input type="text" name="opcion" value="2" hidden>
+				<input type="text" name="nombre" value="" hidden>
+				<input type="text" name="apellido" value="" hidden>
+				<input type="text" name="telefono" value="" hidden>
 				<div class="row">
-				  <div class="input-field col s6">
+				  	<div class="input-field col s12">
 							<i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="userId">
+						  <input type="text" name="cedula">
 							<label for="userId">Cedula</label>
 					</div>
-					<div class="boton_buscar input-field col s6">
-					    <button class="btn waves-effect waves-default" type="submit">
-						     buscar alumno
-					    </button>
-					</div>
-					</div>
-					<div class="row">
-					<div class="input-field col s6">
-    					<i class="material-icons prefix">account_circle</i>
-						<input type="text" name="userName">
-						<label for="userName">Nombre</label>
-					</div>
-					  <div class="input-field col s6">
-						 <input type="text" name="userLastName">
-					   <label  for="userLastName">Apellido</label>
-					</div>
+				</div>
+				<div class="row">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">call</i>
-						  <input type="text" name="userPhone">
-						<label for="userPhone">Telefono</label>
-					</div>
-					    <div class="input-field col s12">
-					      <i class="material-icons prefix">class</i>
-						     <select>
-							     <option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							       <option value="2">Option 2</option>
-							   		<option value="3">Option 3</option>
-						     	</select>
-						    	<label>Nombre del curso</label>
- 						</div>
-					 	<div class="input-field col s12">
-					      <i class="material-icons prefix">assignment_late</i>
-						    <select>
-							     	<option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							     	<option value="2">Option 2</option>
-							    	<option value="3">Option 3</option>
-						    </select>
-						  	<label>Secciones</label>
+					    <i class="material-icons prefix">class</i>
+						<select id="list-select" name="curso">
+							<option value="" disabled selected>Seleccione un Curso...</option>
+							<?php 
+							    $sqlQuery = "SELECT * FROM curso";
+							   	$cursoFinded = $connection->query($sqlQuery);
+							   	if ($cursoFinded->num_rows > 0) {
+							   		while ($row = $cursoFinded->fetch_assoc()) {
+							   			echo "<option value='".$row["idCurso"]."'>".$row["nombreCurso"]."</option>";
+						    		}
+						    	}else {
+						    		echo "<option value='' disabled>No hay Cursos registrados...</option>";
+						    	}
+						    ?>
+						</select>
+				    	<label>Nombre del curso</label>
+ 					</div>
+					<div class="input-field col s12">
+					    <i class="material-icons prefix">assignment_late</i>
+						<select class="list-target" name="seccion">
+						</select>
+						<label>Secciones</label>
 				    </div>
-						<div class="input-field col s12">
-						  	<i class="material-icons prefix">schedule</i>
-						    <select>
-							     	<option value="" disabled selected></option>
-							      <option value="1">Option 1</option>
-							    	<option value="2">Option 2</option>
-							    	<option value="3">Option 3</option>
-						    </select>
-						  	<label>Horarios</label>
-				    </div>
-				
 				</div>
 				<div class="input-field">
 					<button class="btn waves-effect waves-default" type="submit">
@@ -97,5 +79,24 @@
 		      $('select').material_select();
 		  });
  	</script>
+ 	<script type="text/javascript" src="js/request_curso.js"></script>
+
+ 	<?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'registrado') { ?>
+	<script>
+		Materialize.toast('Alumno inscrito con exito', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'yaregistrado') { ?>
+	<script>
+		Materialize.toast('Error: Alumno ya esta registrado', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'noregistrado') { ?>
+	<script>
+		Materialize.toast('Error: Cedula no existe en la base de datos', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje'])) { ?>
+	<script>
+		Materialize.toast('Error', 5000);
+	</script>
+	<?php } ?>
 </body>
 </html>

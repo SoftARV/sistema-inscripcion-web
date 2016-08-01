@@ -1,3 +1,7 @@
+<?php 
+	include "bd/database.php";
+	$connection = connectDatabase();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,79 +25,115 @@
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Registro de Secciones</h2>
-			<form action="register_user.php" method="post">
+			<form action="modules/registers.php" method="post">
 				<div class="row">
 						
 					    <div class="input-field col s6">
 					      <i class="material-icons prefix">class</i>
-						     <select class="option-1">
-							     <option value="" disabled selected>Seleccionar Curso...</option>
-							      <option value="1">CCNA I</option>
-							       <option value="2">CCNA II</option>
-							       <option value="3">CCNA III</option>
-							      <option value="4">CCNA IV</option>
-							     <option value="5">IT Essential</option>
+						     <select class="option-1" name="curso">
+							    <option value="" disabled selected>Seleccionar Curso...</option>
+							    <?php 
+							    	$sqlQuery = "SELECT * FROM curso";
+							    	$cursoFinded = $connection->query($sqlQuery);
+							    	if ($cursoFinded->num_rows > 0) {
+							    		while ($row = $cursoFinded->fetch_assoc()) {
+							    			echo "<option value='".$row["idCurso"]."'>".$row["nombreCurso"]."</option>";
+							    		}
+							    	}else {
+							    		echo "<option value='' disabled>No hay Cursos registrados...</option>";
+							    	}
+							    	
+							    ?>
 						     </select>
 						    <label>Nombre del curso</label>
  						</div>
  						<div class="input-field col s6">
-						     <select class="option-1">
-							     <option value="" disabled selected>Seleccionar Profesor...</option>
-							      <option value="1">Option 1</option>
-							       <option value="2">Option 2</option>
-							     <option value="3">Option 3</option>
+						     <select class="option-1" name="profesor">
+							    <option value="" disabled selected>Seleccionar Profesor...</option>
+							    <?php 
+							    	$sqlQuery = "SELECT * FROM profesor JOIN persona ON persona_idPersona = idPersona";
+							    	$profesorFinded = $connection->query($sqlQuery);
+							    	if ($profesorFinded->num_rows > 0) {
+							    		while ($row = $profesorFinded->fetch_assoc()) {
+							    			echo "<option value='".$row["idProfesor"]."'>".$row["nombre"]." ".$row["apellido"]."</option>";
+							    		}
+							    	}else {
+							    		echo "<option value='' disabled>No hay Profesores registrados...</option>";
+							    	}
+							    	
+							    ?>
 						     </select>
 						    <label>Profesores</label>
  						</div>
 						<div class="input-field col s6">
 						   <i class="material-icons prefix">assignment_late</i>
-							 <input type="text" name="userLastName">
-						   <label  for="userLastName">Seccion</label>
+							 <input type="text" name="seccion">
+						   <label  for="seccion">Seccion</label>
 						</div>
 					    <div class="input-field col s6">
-						    <select class="option-1">
-							     <option value="" disabled selected>Seleccionar Salon...</option>
-							      <option value="1">G-1</option>
-							       <option value="2">G-2</option>
-							       <option value="3">G-3</option>
-							        <option value="4">G-4</option>
-							         <option value="5">G-5</option>
-							        <option value="6">G-6</option>
-							       <option value="7">G-7</option>
-							       <option value="8">G-8</option>
-							      <option value="9">G-9</option>
-							     <option value="10">G-10</option>
+						    <select class="option-1" name="salon">
+							    <option value="" disabled selected>Seleccionar Salon...</option>
+							    <?php 
+							    	$sqlQuery = "SELECT * FROM salon";
+							    	$salonFinded = $connection->query($sqlQuery);
+							    	if ($salonFinded->num_rows > 0) {
+							    		while ($row = $salonFinded->fetch_assoc()) {
+							    			echo "<option value='".$row["idSalon"]."'>".$row["bloque"]."-".$row["numero"]."</option>";
+							    		}
+							    	}else {
+							    		echo "<option value='' disabled>No hay Salones registrados...</option>";
+							    	}
+							    	
+							    ?>
 						    </select>
-						  <label>Salones</label>
+						  <label for="salon">Salones</label>
 				        </div>
 				        <div class="input-field col s6">
 						  <i class="material-icons prefix">schedule</i>
-						    <select class="option-1">
-							     <option value="" disabled selected>Selecionar Dia...</option>
-							      <option value="1">Lunes</option>
-							       <option value="2">Martes</option>
-							        <option value="3">Miercoles</option>
-							       <option value="4">Jueves</option>
-							      <option value="5">Viernes</option>
-							     <option value="6">Sabado</option>
+						    <select class="option-1" name="dia">
+							    <option value="" disabled selected>Selecionar Dia...</option>
+							    <?php 
+							    	$sqlQuery = "SELECT * FROM dia";
+							    	$diaFinded = $connection->query($sqlQuery);
+							    	if ($diaFinded->num_rows > 0) {
+							    		while ($row = $diaFinded->fetch_assoc()) {
+							    			echo "<option value='".$row["idDia"]."'>".$row["nombreDia"]."</option>";
+							    		}
+							    	}else {
+							    		echo "<option value='' disabled>No hay Dias registrados...</option>";
+							    	}
+							    	
+							    ?>
 						    </select>
 						  <label>Dias</label>
 				        </div>
 						<div class="input-field col s6">
-						    <select class="option-1">
-							     <option value="" disabled selected>seleccionar horas...</option>
-							      <option value="1">De las 07:00 a las 09:00</option>
-							       <option value="2">De las 09:00 a las 11:00</option>
-							       <option value="3">De las 11:00 a las 13:00</option>
-							       <option value="4">De las 13:00 a las 15:00</option>
-							       <option value="5">De las 15:00 a las 17:00</option>
-							      <option value="6">De las 17:00 a las 19:00</option>
-							     <option value="7">De las 19:00 a las 21:00</option>
+						    <select class="option-1" name="hora">
+							    <option value="" disabled selected>seleccionar horas...</option>
+							    <?php 
+							    	$sqlQuery = "SELECT * FROM hora";
+							    	$horaFinded = $connection->query($sqlQuery);
+							    	if ($horaFinded->num_rows > 0) {
+							    		while ($row = $horaFinded->fetch_assoc()) {
+							    			echo "<option value='".$row["idHora"]."'>De ".$row["horaInicio"]." a ".$row["horaFinal"]."</option>";
+							    		}
+							    	}else {
+							    		echo "<option value='' disabled>No hay Horas registradas...</option>";
+							    	}
+							    	
+							    ?> 
 						    </select>
 						  <label>Horas</label>
 				        </div>
 
 				</div>
+
+				<input type="text" name="opcion" value="3" hidden>
+				<input type="text" name="nombre" hidden>
+				<input type="text" name="apellido" hidden>
+				<input type="text" name="cedula" hidden>
+				<input type="text" name="telefono" hidden>
+				<input type="text" name="bloque" hidden>
 				<div class="input-field">
 					<button class="btn waves-effect waves-default" type="submit">
 						Registrar de Seccion
@@ -110,6 +150,21 @@
 		      $('select').material_select();
 		  });
  	</script>
+
+	<?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'registrado') { ?>
+	<script>
+		Materialize.toast('Seccion registrada con exito', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'yaregistrado') { ?>
+	<script>
+		Materialize.toast('Error: Seccion ya registrada', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje'])) { ?>
+	<script>
+		Materialize.toast('Error', 5000);
+	</script>
+	<?php } ?>
+
 </body>
 </html>
 

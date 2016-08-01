@@ -58,8 +58,8 @@
 		$capacidad 	= intval($_POST['capacidad']);
 
 		$sqlQuery = 'SELECT * FROM salon WHERE bloque = "'.$bloque.'" AND numero = "'.$salon.'";';
-		$roomsFindded = $GLOBALS['connection']->query($sqlQuery);
-		if ($roomsFindded->num_rows == 0) {
+		$roomsFinded = $GLOBALS['connection']->query($sqlQuery);
+		if ($roomsFinded->num_rows == 0) {
 			$sqlQuery = 'INSERT INTO salon VALUES (DEFAULT, "'.$bloque.'", "'.$salon.'", '.$capacidad.');';
 			if ($GLOBALS['connection']->query($sqlQuery)) {
 				header('Location: ../registrar_salones.php?mensaje=registrado');
@@ -69,15 +69,45 @@
 		}
 	}
 
+	function registroSeccion() {
+		$curso = $_POST['curso'];
+		$profesor = $_POST['profesor'];
+		$seccion = $_POST['seccion'];
+		$salon = $_POST['salon'];
+		$dia = $_POST['dia'];
+		$hora = $_POST['hora'];
+
+		echo $salon."<br>";
+
+		
+		$sqlQuery = "SELECT * FROM seccion WHERE codigoSeccion = '".$seccion."' AND curso_idCurso = ".$curso." AND salon_idSalon = ".$salon." AND hora_idHora = ".$hora." AND dia_idDia = ".$dia." AND profesor_idProfesor = ".$profesor.";";
+		$seccionFinded = $GLOBALS['connection']->query($sqlQuery);
+		if ($seccionFinded === false) {
+			$sqlQuery = "INSERT INTO seccion VALUES(DEFAULT, '".$seccion."', ".$curso.", ".$salon.", ".$hora.", ".$dia.", ".$profesor.")";
+			echo $sqlQuery."<br>";
+			if ($GLOBALS['connection']->query($sqlQuery)) {
+				header('Location: ../registro_secciones.php?mensaje=registrado');
+			}
+		}elseif ($seccionFinded->num_rows == 0) {
+			$sqlQuery = "INSERT INTO seccion VALUES(DEFAULT, '".$seccion."', ".$curso.", ".$salon.", ".$hora.", ".$dia.", ".$profesor.")";
+			if ($GLOBALS['connection']->query($sqlQuery)) {
+				header('Location: ../registro_secciones.php?mensaje=registrado');
+			}
+		} else {
+			header('Location: ../registro_secciones.php?mensaje=yaregistrado');
+		}
+	}
+	
 	switch ($_POST['opcion']) {
 		case '1':
 			registroProfesores();
 			break;
-
 		case '2':
 			registroSalones();
 			break;
-
+		case '3':
+			registroSeccion();
+			break;
 		default:
 			# code...
 			break;
