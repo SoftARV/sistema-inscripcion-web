@@ -32,7 +32,7 @@
 				<div class="row">
 						<div class="input-field col s6">
 						   	<i class="material-icons prefix">business</i>
-							<select name="bloque">
+							<select name="bloque" required>
 							    <option value="" disabled selected>Elige un Bloque</option>
 							    <option value="F">F</option>
 							    <option value="G">G</option>

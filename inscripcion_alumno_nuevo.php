@@ -30,26 +30,26 @@
 				<div class="row">
 					<div class="input-field col s6">
     					<i class="material-icons prefix">account_circle</i>
-						<input type="text" name="nombre">
+						<input type="text" name="nombre" required>
 						<label for="userName">Nombre</label>
 					</div>
 					<div class="input-field col s6">
-						<input type="text" name="apellido">
+						<input type="text" name="apellido" required>
 						<label  for="userLastName">Apellido</label>
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">assignment_ind</i>
-						<input type="text" name="cedula">
+						<input type="text" name="cedula" required>
 						<label for="userId">Cedula</label>
 					</div>
 					<div class="input-field col s12">
 						<i class="material-icons prefix">call</i>
-						<input type="text" name="telefono">
+						<input type="text" name="telefono" required>
 						<label for="userPhone">Telefono</label>
 					</div>
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">class</i>
-						     <select class="option-1 select-curso" name="curso" id="list-select">
+						     <select class="option-1 select-curso" name="curso" id="list-select" required>
 							    <option value="Seleccione un Curso" disabled selected>Seleccionar Curso...</option>
 							    <?php 
 							    	$sqlQuery = "SELECT * FROM curso";
@@ -67,7 +67,7 @@
  						</div>
 					    <div class="input-field col s12">
 					      <i class="material-icons prefix">assignment_late</i>
-						    <select class="option-1 list-target" name="seccion">
+						    <select class="option-1 list-target" name="seccion" required>
 						    </select>
 						  <label>Secciones</label>
 				        </div>

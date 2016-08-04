@@ -23,12 +23,12 @@
      		<form action="modules/login.php" method="post">
 				<div class="input-field col s12">
 					<i class="material-icons prefix">email</i>
-					<input type="email" name="userEmail">
+					<input type="email" name="userEmail" required>
 					<label for="userEmail">Correo</label>
 				</div>
 				<div class="input-field col s12">
 					<i class="material-icons prefix">lock</i>
-					<input type="password" name="userPassword">
+					<input type="password" name="userPassword" required>
 					<label for="userPassword">Contraseña</label>
 				</div>
 				<button class="btn waves-effect waves-default" type="submit">

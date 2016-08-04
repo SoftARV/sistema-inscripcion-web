@@ -30,7 +30,7 @@
 						
 					    <div class="input-field col s6">
 					      <i class="material-icons prefix">class</i>
-						     <select class="option-1" name="curso">
+						     <select class="option-1" name="curso" required>
 							    <option value="" disabled selected>Seleccionar Curso...</option>
 							    <?php 
 							    	$sqlQuery = "SELECT * FROM curso";
@@ -48,7 +48,7 @@
 						    <label>Nombre del curso</label>
  						</div>
  						<div class="input-field col s6">
-						     <select class="option-1" name="profesor">
+						     <select class="option-1" name="profesor" required>
 							    <option value="" disabled selected>Seleccionar Profesor...</option>
 							    <?php 
 							    	$sqlQuery = "SELECT * FROM profesor JOIN persona ON persona_idPersona = idPersona";
@@ -67,11 +67,11 @@
  						</div>
 						<div class="input-field col s6">
 						   <i class="material-icons prefix">assignment_late</i>
-							 <input type="text" name="seccion">
+							 <input type="text" name="seccion" required>
 						   <label  for="seccion">Seccion</label>
 						</div>
 					    <div class="input-field col s6">
-						    <select class="option-1" name="salon">
+						    <select class="option-1" name="salon" required>
 							    <option value="" disabled selected>Seleccionar Salon...</option>
 							    <?php 
 							    	$sqlQuery = "SELECT * FROM salon";
@@ -90,7 +90,7 @@
 				        </div>
 				        <div class="input-field col s6">
 						  <i class="material-icons prefix">schedule</i>
-						    <select class="option-1" name="dia">
+						    <select class="option-1" name="dia" required>
 							    <option value="" disabled selected>Selecionar Dia...</option>
 							    <?php 
 							    	$sqlQuery = "SELECT * FROM dia";
@@ -108,7 +108,7 @@
 						  <label>Dias</label>
 				        </div>
 						<div class="input-field col s6">
-						    <select class="option-1" name="hora">
+						    <select class="option-1" name="hora" required>
 							    <option value="" disabled selected>seleccionar horas...</option>
 							    <?php 
 							    	$sqlQuery = "SELECT * FROM hora";

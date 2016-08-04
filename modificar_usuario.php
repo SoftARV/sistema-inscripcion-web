@@ -21,63 +21,36 @@
 	<div class="container">
 		<div class="row blue lighten-1 z-depth-3 registro-form card">
 			<h2>Modificacion de Usuario</h2>
-			<form action="modules/register_user.php" method="post">
+			<form action="modules/mod_user.php" method="post">
 				<div class="row">
-					<div class="row">
-					     <div class="input-field col s6">
+					 	<div class="input-field col s12">
 							<i class="material-icons prefix">assignment_ind</i>
-							  <input type="text" name="userId">
-							<label for="userId">Ingrese la cedula</label>
-						 </div>
-						 <div class="input-field col s6 boton_buscar">
-						    <button class="btn waves-effect waves-default" type="submit">
-							     buscar
-						    </button>
-						 </div>
-					 </div>
-						<div class="input-field col s6">
-	    					<i class="material-icons prefix">account_circle</i>
-							<input type="text" name="userName">
-							<label for="userName">Nombre</label>
-						</div>
-						<div class="input-field col s6">
-							<i class="material-icons prefix">account_circle</i>
-							<input type="text" name="userLastName">
-							<label  for="userLastName">Apellido</label>
-						</div>
-						<div class="input-field col s6">
-							<i class="material-icons prefix">assignment_ind</i>
-							<input type="text" name="userId">
-							<label for="userId">Cedula</label>
-						</div>
-						<div class="input-field col s6">
-							<i class="material-icons prefix">call</i>
-							<input type="text" name="userPhone">
-							<label for="userPhone">Telefono</label>
+							  <input type="text" name="cedula" required>
+							<label for="cedula">Ingrese la cedula</label>
 						</div>
 						<div class="input-field col s6">
 							<i class="material-icons prefix">email</i>
-							<input type="email" name="userEmail">
-							<label for="userEmail">Correo</label>
+							<input type="email" name="correo">
+							<label for="correo">Correo</label>
 						</div>
 						<div class="input-field col s6">
 							<i class="material-icons prefix">lock</i>
-							<input type="password" name="userPassword">
-							<label for="userPassword">Contraseña Actual</label>
+							<input type="password" name="oldpass">
+							<label for="oldpass">Contraseña Actual</label>
 						</div>
 						<div class="input-field col s6">
 							<i class="material-icons prefix">lock</i>
-							<input type="password" name="userPassword">
-							<label for="userPassword">Ingrese Nueva Contraseña</label>
+							<input type="password" name="newpass">
+							<label for="newpass">Ingrese Nueva Contraseña</label>
 						</div>
 						<div class="input-field col s6">
 							<i class="material-icons prefix">lock</i>
-							<input type="password" name="repeatPassword">
-							<label for="repeatPassword">Repita Nueva Contraseña</label>
+							<input type="password" name="renewpass">
+							<label for="renewpass">Repita Nueva Contraseña</label>
 						</div>
 						<div class="input-field col s4">
 						<i class="material-icons prefix">account_circle</i>
-						  <select class="option-1">
+						  <select class="option-1" name="tipouser">
 							     <option value="" disabled selected>Seleccione el nivel del usuario</option>
 							      <option value="1">Super-Usuario</option>
 							       <option value="2">Usuario</option>
@@ -101,5 +74,32 @@
 		      $('select').material_select();
 		  });
  	</script>
+
+	<?php if(isset($_GET['mensaje']) && $_GET['mensaje'] == 'modificado') { ?>
+	<script>
+		Materialize.toast('Usuario modificado con exito', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'newpasserr') { ?>
+	<script>
+		Materialize.toast('Error: Contraseñas no coinciden', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'noexiste') { ?>
+	<script>
+		Materialize.toast('Error: Persona no registrada', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'noexisteuser') { ?>
+	<script>
+		Materialize.toast('Error: Persona no registrada como Usuario', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'oldpasserr') { ?>
+	<script>
+		Materialize.toast('Error: Vieja Contraseña incorrecta', 5000);
+	</script>
+	<?php } elseif (isset($_GET['mensaje'])) { ?>
+	<script>
+		Materialize.toast('Error', 5000);
+	</script>
+	<?php } ?>
+
 </body>
 </html>

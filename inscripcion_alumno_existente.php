@@ -33,14 +33,14 @@
 				<div class="row">
 				  	<div class="input-field col s12">
 							<i class="material-icons prefix">assignment_ind</i>
-						  <input type="text" name="cedula">
+						  <input type="text" name="cedula" required>
 							<label for="userId">Cedula</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
 					    <i class="material-icons prefix">class</i>
-						<select id="list-select" name="curso">
+						<select id="list-select" name="curso" required>
 							<option value="" disabled selected>Seleccione un Curso...</option>
 							<?php 
 							    $sqlQuery = "SELECT * FROM curso";
@@ -58,7 +58,7 @@
  					</div>
 					<div class="input-field col s12">
 					    <i class="material-icons prefix">assignment_late</i>
-						<select class="list-target" name="seccion">
+						<select class="list-target" name="seccion" required>
 						</select>
 						<label>Secciones</label>
 				    </div>

@@ -1,5 +1,4 @@
 <?php 
-
 	session_start();
 
 	if (!isset($_SESSION['user'])) {
@@ -45,11 +44,6 @@
    					<a href="modificar_inscripcion.php">
 	   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
 							<p>Modificar Inscripcion</p>
-	   					</div>
-   					</a>
-   					<a href="">
-	   					<div class="card blue lighten-1 z-depth-3 carta-secundaria left">
-							<p>Reporte</p>
 	   					</div>
    					</a>
    				</div>

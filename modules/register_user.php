@@ -41,6 +41,8 @@
 						header('Location: ../registro_usuario.php?mensaje=registrado');
 					}
 				}
+			}else {
+				header('Location: ../registro_usuario.php?mensaje=errormail');
 			}
 		} else {
 			// if user identification exist have to verify if it doesnt have login credentials
@@ -51,9 +53,15 @@
 				
 				// check if the person have login credential
 				if ($usersFinded->num_rows == 0) {
-					$sqlQuery = "INSERT INTO usuario VALUES (DEFAULT, '" . $inputEmail . "', '" . $inputPassword . "',  " . $userId . ", 2);";
-					if ($connection->query($sqlQuery)) {
-						header('Location: ../registro_usuario.php?mensaje=registrado');
+					$sqlQuery = "SELECT correo FROM usuario WHERE correo = '" . $inputEmail . "';";
+					$emailsFinded = $connection->query($sqlQuery);
+					if ($emailsFinded->num_rows == 0) {
+						$sqlQuery = "INSERT INTO usuario VALUES (DEFAULT, '" . $inputEmail . "', '" . $inputPassword . "',  " . $userId . ", 2);";
+						if ($connection->query($sqlQuery)) {
+							header('Location: ../registro_usuario.php?mensaje=registrado');
+						}
+					}else {
+						header('Location: ../registro_usuario.php?mensaje=errormail');
 					}
 				}else {
 					// User Already exist

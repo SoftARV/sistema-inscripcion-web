@@ -30,6 +30,7 @@
 					<table class="centered">
 					    <thead class="table-1">
 					        <tr>
+					        	<th data-field="nombre">Cedula</th>
 					            <th data-field="nombre">Nombre</th>
 					            <th data-field="apellido">Apellido</th>
 					            <th data-field="correo">Correo</th>
@@ -40,11 +41,12 @@
 					    <tbody class="table-2">
 					        <?php 
 
-					        	$sqlQuery = 'SELECT nombre, apellido, correo, password, tipoPerfil FROM usuario JOIN persona JOIN perfil ON idPersona = persona_idPersona AND idPerfil = perfil_idPerfil';
+					        	$sqlQuery = 'SELECT cedula, nombre, apellido, correo, password, tipoPerfil FROM usuario JOIN persona JOIN perfil ON idPersona = persona_idPersona AND idPerfil = perfil_idPerfil';
 					        	$seccionFinded =  $connection->query($sqlQuery);
 								if ($seccionFinded->num_rows != 0) {
 									while ($seccion = $seccionFinded->fetch_assoc()) {
 										echo "	<tr>
+													<td>".$seccion['cedula']."</td>
 							           				<td>".$seccion['nombre']."</td>
 								            		<td>".$seccion['apellido']."</td>
 								            		<td>".$seccion['correo']."</td>

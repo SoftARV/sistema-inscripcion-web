@@ -83,6 +83,10 @@
 	<script>
 		Materialize.toast('Error: Contraseña no coincide', 5000);
 	</script>
+	<?php } elseif (isset($_GET['mensaje']) && $_GET['mensaje'] == 'errormail') { ?>
+	<script>
+		Materialize.toast('Error: Correo ya existe', 5000);
+	</script>
 	<?php } elseif (isset($_GET['mensaje'])) { ?>
 	<script>
 		Materialize.toast('Error', 5000);

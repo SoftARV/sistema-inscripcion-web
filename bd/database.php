@@ -1,11 +1,15 @@
 <?php 
 
 	define("databaseServer", "localhost");
+	
+	// local bd
 	//define("databaseUser", "root");
 	//define("databasePassword", "");
+	//define("databaseName", "sistema_inscripcion_bd");
+
+	// remote bd
 	define("databaseUser", "u887989201_root");
 	define("databasePassword", "AZK986889@m");
-	//define("databaseName", "sistema_inscripcion_bd");
 	define("databaseName", "u887989201_ctt");
 
 	function connectDatabase() {
